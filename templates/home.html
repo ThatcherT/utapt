@@ -1,0 +1,25 @@
+{% extends 'base.html' %} <!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Apartments</title>
+
+</head>
+<body>
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+{% if user.is_authenticated %}
+
+<blockquote class="blockquote text-center">
+<h1 class="display-4">Welcome, {{ user.username }}.</h1>
+    </blockquote>
+
+{% else %}
+
+{% endif %}
+{% endblock %}
+</body>
+</html>

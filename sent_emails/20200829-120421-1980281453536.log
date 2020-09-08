@@ -1,0 +1,25 @@
+Content-Type: text/plain; charset="utf-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+Subject: Password reset on 127.0.0.1:8000
+From: webmaster@localhost
+To: thatch@utexas.edu
+Date: Sat, 29 Aug 2020 17:04:21 -0000
+Message-ID: <159872066157.17372.7255113472092693299@DESKTOP-VG69P97>
+
+
+You're receiving this email because you requested a password reset for your user account at 127.0.0.1:8000.
+
+Please go to the following page and choose a new password:
+
+http://127.0.0.1:8000/register/reset/Mg/a9d879-f6caca37df4ed68d85ccb14f63d0f8ab/
+
+Your username, in case you’ve forgotten: Thatch
+
+Thanks for using our site!
+
+The 127.0.0.1:8000 team
+
+
+
+-------------------------------------------------------------------------------

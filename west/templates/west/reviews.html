@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Reviews</title>
+</head>
+<body>
+{% extends 'base.html' %}
+<h1>{{ apartment.name }}</h1>
+
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+{% if user.is_authenticated %}
+  Hi {{ user.username }}!
+    <p><a href="{% url 'logout' %}">logout</a></p>
+<form action="{% url 'west:reviewit' apartment.id %}" method="post">
+    {% csrf_token %}
+
+    <label for="fname">First name:</label><br>
+    <input type = "text" id="fname" name ="fname"><br>
+    <label for="review">Submit your review here:</label><br>
+    <input type="text" id = "review" name = "review">
+    <input type="submit" value="Submit">
+</form>
+{% else %}
+  <p>You need to be logged in to leave a review!</p>
+  <a href="{% url 'login' %}">login</a>
+{% endif %}
+
+
+{% if apartment.review_set.all %}
+    <ul>
+    {% for review in apartment.review_set.all %}
+        <h3>{{ review.name }}</h3>
+        <p>Review: {{ review.review }}</p>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>Sorry sir, no reviews available. : (</p>
+{% endif %}
+
+<a href="{% url 'west:detail' apartment.id %}">Back to {{ apartment.name }}</a>
+{% endblock %}
+</body>
+</html>

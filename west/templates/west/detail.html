@@ -1,0 +1,16 @@
+{% extends 'base.html' %}<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ apartment.name }}</title>
+</head>
+<body>
+{% block content %}
+<h1>{{ apartment.name }}</h1>
+
+<a href="{% url 'west:reviews' apartment.id %}">See Reviews for {{ apartment.name }}</a>
+<br>
+<a href="{% url 'west:search' %}">Back to search</a>
+{% endblock %}
+</body>
+</html>

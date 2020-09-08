@@ -1,0 +1,38 @@
+{% extends 'base.html' %}<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Search</title>
+</head>
+<body>
+{% block title %}Search{% endblock %}
+{% block content %}
+
+{% for sublease in sublease_list %}
+<div class="card" style="width:20rem;">
+    <div class="card-body text-center">
+        <h5 class="card-title">{{ sublease.aptname }}</h5>
+
+        <p class="card-text text-left">Price: ${{ sublease.price }}</p>
+        <p class="card-text text-left">Square Footage: {{ sublease.sqft }}</p>
+        <p class="card-text text-left">Rooms: {{ sublease.rooms }}</p>
+        <p class="card-text text-left">Date Posted: {{ sublease.dateposted }}</p>
+        <p class="card-text text-left">Gender Requirement: {{ sublease.opento }}</p>
+        <p class="card-text text-left">Negotiable: {{ sublease.negotiable }}</p>
+        <p class="card-text text-left">Address: {{ sublease.address }}</p>
+        <p class="card-text text-left">Contact: {{ sublease.contact }}</p>
+            </div>
+
+        </div>
+
+    </div>
+            {% endfor %}
+</div>
+
+
+</div>
+</body>
+
+{% endblock %}
+</body>
+</html>

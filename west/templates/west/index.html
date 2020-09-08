@@ -1,0 +1,97 @@
+{% extends 'base.html' %}<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>Apartments</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'west/style.css' %}">
+    <link rel="stylesheet" href="{% static 'js/dragdropswap.js' %}">
+
+</head>
+<!--<body>-->
+<!--    {% if apartment_list %}-->
+<!--    <div class="board-layout">-->
+
+<!--        <div class="left">-->
+<!--          <div class="board-text">Simple. Scalable. Scottadiddy.</div>-->
+
+<!--        </div>-->
+
+<!--      <div id='boardlists' class="board-lists">-->
+<!--        <div id='{apartment.id}' class="board-list" ondrop="dropIt(event)" ondragover="allowDrop(event)">-->
+<!--          <div class="list-title">-->
+<!--            Apartments-->
+<!--          </div>-->
+<!--            {% for apartment in apartment_list %}-->
+
+
+<!--            <div  id='card1' class="card" draggable="true" ondragstart="dragStart(event)">-->
+<!--                {{ apartment.name }}-->
+<!--            </div>-->
+<!--        {% endfor %}-->
+
+<!--        </div>-->
+<!--        <div  id='list3' class="board-list"  ondrop="dropIt(event)" ondragover="allowDrop(event)">-->
+<!--          <div  class="list-title">-->
+<!--            Favorites-->
+<!--            </div>-->
+
+<!--            </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--<script src='dragdropswap.js'></script>-->
+<!--{% else %}-->
+<!--    <p>No apartments are available.</p>-->
+<!--{% endif %}-->
+<!--</body>-->
+<body>
+
+<form class="form" action="{% url 'west:index'%}" method ="get">
+
+  <h2>Location</h2>
+  <div class="inputGroup">
+    <input id="option1" name="west" type="checkbox"/>
+    <label for="option1">West</label>
+  </div>
+
+  <div class="inputGroup">
+    <input id="option2" name="north" type="checkbox"/>
+    <label for="option2">North</label>
+  </div>
+
+
+  <div class="inputGroup">
+    <input id="option3" name="riverside" type="checkbox"/>
+    <label for="option3">Riverside</label>
+  </div>
+
+  <h2>Pets</h2>
+  <div class="inputGroup">
+    <input id="radio1" name="radio" type="radio"/>
+    <label for="radio1">Yes</label>
+  </div>
+  <div class="inputGroup">
+    <input id="radio2" name="radio" type="radio"/>
+    <label for="radio2">No</label>
+  </div>
+    <input type="submit" value="Go!">
+</form>
+
+
+
+<link href="https://fonts.googleapis.com/css?family=Fira+Sans" rel="stylesheet">
+{% if apartment_list %}
+    <ul>
+    {% for apartment in apartment_list %}
+        <li><a href="{% url 'west:detail' apartment.id %}">{{ apartment.name }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No apartments are available.</p>
+{% endif %}
+</body>
+</html>

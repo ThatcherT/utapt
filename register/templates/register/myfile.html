@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Profile</title>
+</head>
+<body>
+<h2>{{ user.username }}</h2>
+<ul>
+  <li>Username: {{ user.username }}</li>
+  <li>College: {{ user.profile.college }}</li>
+  <li>Aboutme: {{ user.profile.aboutme }}</li>
+    <li>Favorites:
+
+        {{ user.profile.favorites.name }}
+
+    </li>
+
+</ul>
+</body>
+</html>

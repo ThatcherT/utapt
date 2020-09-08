@@ -1,0 +1,81 @@
+{% extends 'base.html' %}<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Search</title>
+</head>
+<body>
+{% block title %}Search{% endblock %}
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm">
+            <div class="sticky-top">
+                <form method = "GET" >
+                <h2>Search by Name</h2>
+                <br>
+                <label for="name">Search by Name:</label>
+                <input type="text" id="name" name="name" value="">
+                <br>
+                <br>
+                <h2>Sort by Area</h2>
+                <ul class="ks-cboxtags">
+                <li><input type="checkbox" id="west" name="west" value="W">
+                <label for="west">West Campus</label></li>
+
+                <li><input type="checkbox" id="north" name="north" value="N">
+                <label for="north">North Campus</label></li>
+
+                <li><input type="checkbox" id="riverside" name="riverside" value="R">
+                <label for="riverside">Riverside</label></li>
+                </ul>
+                <h2>Sort by Price</h2>
+                <input type="radio" id="low2hi" name="sortprice" value="LOW">
+                <label for="low2hi"> Low2Hi </label>
+
+                <input type="radio" id="hi2low" name="sortprice" value="HIGH">
+                <label for="hi2low"> Hi2Low </label>
+                <br>
+                <br>
+                <label for="low">Low:</label>
+                <input type="number" id="low" name="quantitylow" min="0" value=""> <br>
+
+                <label for="high">High:</label>
+                <input type="number" id="high" name="quantityhigh" min="0" value="">
+                <br>
+                <br>
+                <button class ="btn btn-primary" type ="submit">
+                Go!
+                </button>
+                </form>
+            </div>
+        </div>
+        <div class="col-sm">
+
+{% for apartment in apartment_list %}
+            <div class="row scrollable">
+                <div class="card" style="width:20rem;">
+                    <div class="card-body text-center">
+                        <h5 class="card-title"><a href="{% url 'west:detail' apartment.id %}">{{ apartment.name }}</a></h5>
+
+                        <p class="card-text text-left">Price: ${{ apartment.price }}</p>
+                        <p class="card-text text-left">Area: {{ apartment.area }}</p>
+
+                        <input type="checkbox" id="{{apartment.name}} favorite" name="favorite" value="">
+                    </div>
+
+                </div>
+
+            </div>
+        {% endfor %}
+        </div>
+
+
+    </div>
+</div>
+</body>
+
+{% endblock %}
+</body>
+</html>

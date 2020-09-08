@@ -1,0 +1,44 @@
+{% extends 'base.html' %}<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Search</title>
+</head>
+<body>
+{% block title %}Search{% endblock %}
+{% block content %}
+<div class="container-fluid bg-dark">
+
+
+    {% for roommate in roommate_list %}
+    {% if forloop.first %}<div class="row">{% endif %}
+
+         <div class="col-xs-3 d-flex align-items-stretch">
+            <div class="card" style="width:20rem;">
+                <div class="card-body text-center">
+                    <h5 class="card-title">{{ roommate.aptname }}</h5>
+
+                    <p class="card-text text-left">Name: {{ roommate.name }}</p>
+                    <p class="card-text text-left">College: {{ roommate.school }}</p>
+                    <p class="card-text text-left">Blurb: {{ roommate.description }}</p>
+                    <p class="card-text text-left">Do I like to workout?: {{ roommate.workout }}</p>
+                    <p class="card-text text-left">Gender: {{ roommate.gender }}</p>
+
+
+                </div>
+
+            </div>
+
+        </div>
+    {% if forloop.counter|divisibleby:3 %}</div><div class="row">{% endif %}
+    {% if forloop.last %}</div>{% endif %}
+{% endfor %}
+    </div>
+
+
+</div>
+</body>
+
+{% endblock %}
+</body>
+</html>
